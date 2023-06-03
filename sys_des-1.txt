@@ -1,0 +1,54 @@
+package main
+
+import (
+	"fmt"
+)
+
+type edu interface {
+	teach()
+}
+
+type school struct {
+	sub [6]string
+	college
+}
+
+func (s *school) teach() {
+	fmt.Println("Subjects in schools are ass follows")
+	fmt.Println(" ")
+	s.sub = [6]string{"Science", "Maths", "Social", "Kannada", "English"}
+	for _, v := range s.sub {
+		fmt.Println(v)
+
+	}
+	s.college.preach()
+}
+
+type college struct {
+	sub1 []string
+}
+
+func (c *college) preach() {
+	fmt.Println("Subjects in college are as follwos ")
+	fmt.Println(" ")
+
+	c.sub1 = []string{"Physics", "Chemistry", "Maths", "Biology"}
+
+	for _, j := range c.sub1 {
+		fmt.Println(j)
+	}
+	m := make([]string, 4)
+	for k := 0; k < 4; k++ {
+
+		m[k] = fmt.Sprintf("%d  pass", k)
+
+	}
+	fmt.Println(m)
+}
+
+func main() {
+
+	knowledge := school{}
+	knowledge.teach()
+
+}
